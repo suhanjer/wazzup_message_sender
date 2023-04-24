@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>URL fetch</title>
+    </head>
+    <body>
+        <button id="send">start</button>
+        <script>
+            let text = 0;
+
+            let send = document.querySelector("#send");
+
+            send.onclick = () => {
+                sendMessage();
+                text++;
+            }
+
+
+            function sendMessage() {
+                data = {
+                    "user": {
+                        "id": "4961-0468",
+                        "name": "Anuar",
+                    },
+                    "scope": "global",
+                    "channelId": "c1332c7d-f79f-45b7-b561-53292b09b710",
+                    "chatType": "whatsapp",
+                    "chatId": "", /* phone number */
+                    "text": text.toString(),
+                }
+                console.log(JSON.stringify(data));
+                url = "https://api.wazzup24.com/v2/send_message"
+                fetch(url, {
+                    method: "POST",
+                    withcredentials: true,
+                    headers: {
+                        "Authorization": "", /* authorization token here */
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    console.log("sent");
+                })
+                .catch(error => {
+                    console.log("not sent");
+                    console.log(error);
+                });
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>URL fetch</title>
+        <script>
+            data = {
+                "user": {
+                    "id": "4961-0468",
+                    "name": "Anuar",
+                },
+                "scope": "global",
+            }
+            url = "https://api.wazzup24.com/v2/channels"
+            fetch(url, {
+                method: "GET",
+                withcredentials: true,
+                headers: {
+                    "Authorization": "", /* authorization token here */
+                    "Content-Type": "application/json",
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                console.log("sent");
+            })
+            .catch(error => {
+                console.log("not sent");
+                console.log(error);
+            });
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
