@@ -1,2 +1,3 @@
 # wazzup_message_sender
- send messages through wazzup 24
+ send.* files send messages through wazzup24
+
